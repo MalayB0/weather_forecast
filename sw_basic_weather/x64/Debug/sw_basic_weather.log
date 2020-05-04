@@ -1,0 +1,10 @@
+﻿빌드 시작: 2017-06-11 오후 9:00:40
+     1>2 노드의 "C:\Users\dltjr\documents\visual studio 2012\Projects\sw_basic_weather\sw_basic_weather\sw_basic_weather.vcxproj" 프로젝트(Build 대상)입니다.
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\dltjr\documents\visual studio 2012\Projects\sw_basic_weather\x64\Debug\sw_basic_weather.exe" /INCREMENTAL /NOLOGO /LIBPATH:D:\UTILITY\MATLAB\extern\lib\win64\microsoft kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib libmx.lib libeng.lib libmex.lib libmat.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\dltjr\documents\visual studio 2012\Projects\sw_basic_weather\x64\Debug\sw_basic_weather.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\dltjr\documents\visual studio 2012\Projects\sw_basic_weather\x64\Debug\sw_basic_weather.lib" /MACHINE:X64 x64\Debug\have_fun.obj
+         sw_basic_weather.vcxproj -> C:\Users\dltjr\documents\visual studio 2012\Projects\sw_basic_weather\x64\Debug\sw_basic_weather.exe
+     1>"C:\Users\dltjr\documents\visual studio 2012\Projects\sw_basic_weather\sw_basic_weather\sw_basic_weather.vcxproj" 프로젝트를 빌드했습니다(Build 대상).
+
+빌드했습니다.
+
+경과 시간: 00:00:01.74

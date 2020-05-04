@@ -1,0 +1,20 @@
+﻿빌드 시작: 2017-05-27 오후 10:38:44
+     1>2 노드의 "C:\Users\dltjr\documents\visual studio 2012\Projects\sw_basic_weather\sw_basic_weather\sw_basic_weather.vcxproj" 프로젝트(Build 대상)입니다.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ID:\UTILITY\MATLAB\extern\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt have_fun.cpp matmat.cpp
+         matmat.cpp
+     1>d:\utility\matlab\extern\include\matrix.h(330): error C2371: 'char16_t' : 재정의. 기본 형식이 다릅니다.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\yvals.h(528) : 'char16_t' 선언을 참조하십시오.
+     1>c:\users\dltjr\documents\visual studio 2012\projects\sw_basic_weather\sw_basic_weather\matmat.cpp(29): warning C4566: 유니버설 문자 이름 '\u00A0'(으)로 표현되는 문자는 현재 코드 페이지(949)에서 표현할 수 없습니다.
+     1>c:\users\dltjr\documents\visual studio 2012\projects\sw_basic_weather\sw_basic_weather\matmat.cpp(30): warning C4566: 유니버설 문자 이름 '\u00A0'(으)로 표현되는 문자는 현재 코드 페이지(949)에서 표현할 수 없습니다.
+         have_fun.cpp
+     1>c:\users\dltjr\documents\visual studio 2012\projects\sw_basic_weather\sw_basic_weather\have_fun.cpp(126): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(218) : 'fopen' 선언을 참조하십시오.
+     1>c:\users\dltjr\documents\visual studio 2012\projects\sw_basic_weather\sw_basic_weather\have_fun.cpp(144): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290) : 'scanf' 선언을 참조하십시오.
+         코드를 생성하고 있습니다...
+     1>"C:\Users\dltjr\documents\visual studio 2012\Projects\sw_basic_weather\sw_basic_weather\sw_basic_weather.vcxproj" 프로젝트를 빌드했습니다(Build 대상). - 실패
+
+빌드하지 못했습니다.
+
+경과 시간: 00:00:01.06
