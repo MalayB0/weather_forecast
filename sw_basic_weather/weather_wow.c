@@ -27,7 +27,7 @@ struct save {
 struct node *head = 0;
 struct node *tail = 0;
 
-struct node *find_head = 0; // ºñ±³ÇÏ´Â ³¯ÀÇ Àü³¯ÀÇ ½ÃÀÛ.
+struct node *find_head = 0; // ë¹„êµí•˜ëŠ” ë‚ ì˜ ì „ë‚ ì˜ ì‹œì‘.
 struct node *find_tail = 0;
 
 struct node *cmp_head = 0;
@@ -67,7 +67,7 @@ void add_save_dll(struct node* n_posi)
    }
    else
    {
-      printf("add_save_dll ¹®Á¦");
+      printf("add_save_dll ë¬¸ì œ");
       return;
    }
 }
@@ -114,18 +114,18 @@ void delet_save_dll(struct save* unco_save)
    }
 }
 
-//»õ·Î¿î ³ëµå»ı¼º
+//ìƒˆë¡œìš´ ë…¸ë“œìƒì„±
 struct node *creatNode(wchar_t *p, int d, int l_t, int h_t, int r, int m)
 {
    struct node *cur = (struct node*)malloc(sizeof(struct node));
-   //³ëµåÀÇ ³»¿ë¹°
+   //ë…¸ë“œì˜ ë‚´ìš©ë¬¼
    cur->position = p;
    cur->date = d;
    cur->low_tem = l_t;
    cur->high_tem = h_t;
    cur->rain = r;
    cur->moi = m;
-   //³ëµåÀÇ link
+   //ë…¸ë“œì˜ link
    cur->under = 0;
    cur->up = 0;
    return cur;
@@ -171,7 +171,7 @@ void moi_parsing(wchar_t* asf)
 
    int beforemoistrue = fifthSpace +1;   //22
    //printf("%d\n", len);
-                                 //Áö¿ª wchar
+                                 //ì§€ì—­ wchar
    wchar_t *pos = (wchar_t*)malloc((firstSpace) * sizeof(wchar_t) + 1);
    int k = 0;
    for (int j = 0; j < firstSpace; j++, k++)
@@ -180,7 +180,7 @@ void moi_parsing(wchar_t* asf)
    }
    pos[k] = L'\0';
 
-   //³¯Â¥ wchar -> int
+   //ë‚ ì§œ wchar -> int
    wchar_t *date = (wchar_t*)malloc((secondSpace - beforedate) * sizeof(wchar_t) + 1);
    k = 0;
    for (int j = beforedate; j<secondSpace; j++, k++)
@@ -190,7 +190,7 @@ void moi_parsing(wchar_t* asf)
    date[k] = L'\0';
    int datei = _wtoi(date);
 
-   //ÃÖÀú¿Âµµ wchar -> int
+   //ìµœì €ì˜¨ë„ wchar -> int
    wchar_t *low_tem = (wchar_t*)malloc((thirdSpace - beforehigh_tem) * sizeof(wchar_t) + 1);
    k = 0;
    for (int j = beforehigh_tem; j < thirdSpace; j++, k++)
@@ -200,7 +200,7 @@ void moi_parsing(wchar_t* asf)
    low_tem[k] = L'\0';
    int low_temi = _wtoi(low_tem);
 
-   //ÃÖÀú¿Âµµ wchar -> int
+   //ìµœì €ì˜¨ë„ wchar -> int
    wchar_t *high_tem = (wchar_t*)malloc((fourthSpace - beforelow_tem) * sizeof(wchar_t) + 1);
    k = 0;
    for (int j = beforelow_tem; j < fourthSpace; j++, k++)
@@ -210,7 +210,7 @@ void moi_parsing(wchar_t* asf)
    high_tem[k] = L'\0';
    int high_temi = _wtoi(high_tem);
 
-   //°­¼ö·® wchar -> int
+   //ê°•ìˆ˜ëŸ‰ wchar -> int
    wchar_t *rain = (wchar_t*)malloc((fifthSpace - beforerain) * sizeof(wchar_t) + 1);
    k = 0;
    for (int j = beforerain; j < fifthSpace; j++, k++)
@@ -220,7 +220,7 @@ void moi_parsing(wchar_t* asf)
    rain[k] = L'\0';
    int raini = _wtoi(rain);
 
-   //½Àµµ wchar -> int
+   //ìŠµë„ wchar -> int
    wchar_t *moi = (wchar_t*)malloc(((len)-beforemoistrue) * sizeof(wchar_t) + 1);
    k = 0;
    for (int j = beforemoistrue; j < len; j++, k++)
@@ -278,21 +278,21 @@ void show_save(int input_date)
    while (temp != 0)
    {
       struct node* cur = temp->node_posi;
-      printf("%d, ³ô°Ô ÀÏÄ¡µÇ´Â ÀÏÁÖÀÏ\n------------------------------------------------------------\n",cnt);
+      printf("%d, ë†’ê²Œ ì¼ì¹˜ë˜ëŠ” ì¼ì£¼ì¼\n------------------------------------------------------------\n",cnt);
       for (int idx = 0; idx < 7; idx++)
       {
-         printf("³¯Â¥: %d ÃÖÀú±â¿Â: %d ÃÖ°í±â¿Â: %d °­¼ö·®: %d ½Àµµ·®: %d \n",cur->date,cur->low_tem,cur->high_tem,cur->rain,cur->moi);
+         printf("ë‚ ì§œ: %d ìµœì €ê¸°ì˜¨: %d ìµœê³ ê¸°ì˜¨: %d ê°•ìˆ˜ëŸ‰: %d ìŠµë„ëŸ‰: %d \n",cur->date,cur->low_tem,cur->high_tem,cur->rain,cur->moi);
          cur = cur->under;
       }
       printf("------------------------------------------------------------\n\n");
-      printf("³¯Â¥: %d ÃÖÀú±â¿Â: %d ÃÖ°í±â¿Â: %d °­¼ö·®: %d ½Àµµ·®: %d \n", cur->date, cur->low_tem, cur->high_tem, cur->rain, cur->moi);
+      printf("ë‚ ì§œ: %d ìµœì €ê¸°ì˜¨: %d ìµœê³ ê¸°ì˜¨: %d ê°•ìˆ˜ëŸ‰: %d ìŠµë„ëŸ‰: %d \n", cur->date, cur->low_tem, cur->high_tem, cur->rain, cur->moi);
       printf("\n");
       l_tem_s = l_tem_s + cur->low_tem;
       h_tem_s = h_tem_s + cur->high_tem;
       rain_s = rain_s + cur->rain;
       moi_s = moi_s + cur->moi;
       //printf("%d", cnt);
-      //printf("½Àµµ filter:");
+      //printf("ìŠµë„ filter:");
       //printf("%d\n",temp->node_posi->date);
       cnt++;
       
@@ -300,7 +300,7 @@ void show_save(int input_date)
    }
    cnt--;
    printf("\n-------------------------------------------------------------------------\n\n");
-   printf("ÃÖÁ¾ ¿¹Ãø°á°ú - %d: ÃÖÀú±â¿Â: %d ÃÖ°í±â¿Â: %d  °­¼ö·®: %d ½Àµµ: %d\n",input_date,l_tem_s/cnt,h_tem_s/cnt,rain_s/cnt,moi_s/cnt);
+   printf("ìµœì¢… ì˜ˆì¸¡ê²°ê³¼ - %d: ìµœì €ê¸°ì˜¨: %d ìµœê³ ê¸°ì˜¨: %d  ê°•ìˆ˜ëŸ‰: %d ìŠµë„: %d\n",input_date,l_tem_s/cnt,h_tem_s/cnt,rain_s/cnt,moi_s/cnt);
    printf("\n-------------------------------------------------------------------------\n\n");
    Engine *pEngine;
    
@@ -312,18 +312,18 @@ void show_save(int input_date)
    if(rain_s/cnt==0)
    {
 	   engEvalString(pEngine,"img=imread('C:\Users\dltjr\Documents\Visual Studio 2012\Projects\sw_basic_weather\sw_basic_weather\sun.jpg')");
-	   engEvalString(pEngine,"figure(1),suptitle('¸¼À½')");
+	   engEvalString(pEngine,"figure(1),suptitle('ë§‘ìŒ')");
 	   engEvalString(pEngine,"imshow(img,'border','tight')");
    }
    else
    {
 	   engEvalString(pEngine,"img=imread('C:\Users\dltjr\Documents\Visual Studio 2012\Projects\sw_basic_weather\sw_basic_weather\rain.jpg')");
-	   engEvalString(pEngine,"figure(1),suptitle('ºñ')");
+	   engEvalString(pEngine,"figure(1),suptitle('ë¹„')");
 	   engEvalString(pEngine,"imshow(img,'border','tight')");
    }
 
-   /*FILE *wfile = fopen("ÀÎÃµ.txt","a");
-   fprintf(wfile,"\nÀÎÃµ	%d	 %02d	 %02d	%03d	%d",input_date,l_tem_s/cnt,h_tem_s/cnt,rain_s/cnt,moi_s/cnt);
+   /*FILE *wfile = fopen("ì¸ì²œ.txt","a");
+   fprintf(wfile,"\nì¸ì²œ	%d	 %02d	 %02d	%03d	%d",input_date,l_tem_s/cnt,h_tem_s/cnt,rain_s/cnt,moi_s/cnt);
    fclose(wfile);*/
    return;
 }
@@ -393,16 +393,16 @@ void destroy_data()
    
    return;
 }
-// ÃÖ¼ÒÀÚ½Â¹ıÀ» Âü°íÇÏ¿© ½Àµµ Á¤¸®
+// ìµœì†ŒììŠ¹ë²•ì„ ì°¸ê³ í•˜ì—¬ ìŠµë„ ì •ë¦¬
 int find_moi()
 {
-   // 1, Ã£°íÀÚ ÇÏ´Â ³¯Â¥ ÀÔ·Â
+   // 1, ì°¾ê³ ì í•˜ëŠ” ë‚ ì§œ ì…ë ¥
    //int find_date = 0;
-   //printf("Ã£°íÀÚ ÇÏ´Â ³¯Â¥ ÀÔ·Â: ");
+   //printf("ì°¾ê³ ì í•˜ëŠ” ë‚ ì§œ ì…ë ¥: ");
    //scanf_s("%d", &find_date); printf("%d",find_date);
 
    FILE* find_f = 0;
-   fopen_s(&find_f, "ÀÎÃµ.txt", "rt");
+   fopen_s(&find_f, "ì¸ì²œ.txt", "rt");
 
    wchar_t pst[100];
    if (find_f == 0)
@@ -426,7 +426,7 @@ int find_moi()
    fclose(find_f);
    
    int input_date = 0;
-   printf("³¯Â¥ ÀÔ·Â: ");
+   printf("ë‚ ì§œ ì…ë ¥: ");
    scanf_s("%d",&input_date);
    
    struct node* f_date_node = head;
@@ -440,7 +440,7 @@ int find_moi()
          {
             if (ans == 0)
             {
-               printf("ÀÌÀü °ú°Å µ¥ÀÌÅÍ°¡ ¾ø³×¿ä....\n");
+               printf("ì´ì „ ê³¼ê±° ë°ì´í„°ê°€ ì—†ë„¤ìš”....\n");
                return -1;
             }
             ans = ans->up;
@@ -465,9 +465,9 @@ int find_moi()
       }
       else if (f_date_node->under == 0)
       {
-         printf("Á¸ÀçÇÏÁö ¾Ê´Â ³¯Â¥ or °ú°Å µ¥ÀÌÅÍ°¡ ¾ø½À´Ï´Ù.\n");
+         printf("ì¡´ì¬í•˜ì§€ ì•ŠëŠ” ë‚ ì§œ or ê³¼ê±° ë°ì´í„°ê°€ ì—†ìŠµë‹ˆë‹¤.\n");
          find_tail = tail;
-         //1-1, ºñ±³ÇÒ ºÎºĞ find °ú Ã£°íÀÚ ÇÏ´Â ºÎºĞ cmp À» ±¸ºĞ.
+         //1-1, ë¹„êµí•  ë¶€ë¶„ find ê³¼ ì°¾ê³ ì í•˜ëŠ” ë¶€ë¶„ cmp ì„ êµ¬ë¶„.
          for (int past_cnt = 1; past_cnt < 7; past_cnt++)
          {
             tail = tail->up;
@@ -477,8 +477,8 @@ int find_moi()
          find_head->up = 0;
          tail->under = 0;
 
-         //2, ºñ±³ ½ÃÀÛ
-         // 2-1, ºñ±³ÇÒ ºÎºĞ Ã£±â
+         //2, ë¹„êµ ì‹œì‘
+         // 2-1, ë¹„êµí•  ë¶€ë¶„ ì°¾ê¸°
          cmp_head = head;
          cmp_tail = head;
          for (int cmp_tail_find_idx = 1; cmp_tail_find_idx < 7; cmp_tail_find_idx++)
@@ -491,7 +491,7 @@ int find_moi()
    }
    
 /*   find_tail = tail;
-   //1-1, ºñ±³ÇÒ ºÎºĞ°ú Ã£°íÀÚ ÇÏ´Â ºÎºĞÀ» ±¸ºĞ.
+   //1-1, ë¹„êµí•  ë¶€ë¶„ê³¼ ì°¾ê³ ì í•˜ëŠ” ë¶€ë¶„ì„ êµ¬ë¶„.
    for (int past_cnt = 1; past_cnt < 7; past_cnt++)
    {
       tail = tail->up;
@@ -501,20 +501,20 @@ int find_moi()
    find_head->up = 0;
    tail->under = 0;
 
-   //2, ºñ±³ ½ÃÀÛ
-   // 2-1, ºñ±³ÇÒ ºÎºĞ Ã£±â
+   //2, ë¹„êµ ì‹œì‘
+   // 2-1, ë¹„êµí•  ë¶€ë¶„ ì°¾ê¸°
    cmp_head = head;
    cmp_tail = head;
    for (int cmp_tail_find_idx = 1; cmp_tail_find_idx < 7; cmp_tail_find_idx++)
    {
       cmp_tail = cmp_tail->under;
    }*/
-   // ¿©±â ±îÁö°¡ Ã³À½ Ã£À½.
+   // ì—¬ê¸° ê¹Œì§€ê°€ ì²˜ìŒ ì°¾ìŒ.
 
 
    
-   //½ÀµµÀÇ ¿ÀÂ÷ Á¦°öÀÌ °¡Àå Å« °ª Ã£±â
-    //  ±× °ªÀº -> 8869
+   //ìŠµë„ì˜ ì˜¤ì°¨ ì œê³±ì´ ê°€ì¥ í° ê°’ ì°¾ê¸°
+    //  ê·¸ ê°’ì€ -> 8869
 
    int moi_error_sum = 0;
    int moi_cmp_error_sum = 0;
@@ -571,7 +571,7 @@ int find_moi()
       }
       else
       {
-         printf("°¡Àå Å« °ª Ã£±â error\n");
+         printf("ê°€ì¥ í° ê°’ ì°¾ê¸° error\n");
       }
       s_cmp_head = s_cmp_head->under;
       s_cmp_tail = s_cmp_tail->under;
@@ -582,14 +582,14 @@ int find_moi()
    //printf("%d",moi_cmp_error_sum);
    
 
-   // È®·ü·Î½á filtering ¿ÀÂ÷À²Àº 100 - (error_sum/°¡Àå Å« °ª(10143)) * 100  ½Àµµ: 10143 ÃÖ¿Â; 4535 °­¼ö: 65014
+   // í™•ë¥ ë¡œì¨ filtering ì˜¤ì°¨ìœ¨ì€ 100 - (error_sum/ê°€ì¥ í° ê°’(10143)) * 100  ìŠµë„: 10143 ìµœì˜¨; 4535 ê°•ìˆ˜: 65014
    
 
    int sad_cnt = 0;
 
-   //½Àµµ filter
+   //ìŠµë„ filter
 
-   //½Àµµ ÀÏÄ¡À² ±âÁØ, ½Àµµ °¡Àå Å« °ª 10143 // 90% <887 95% <507 97% 304
+   //ìŠµë„ ì¼ì¹˜ìœ¨ ê¸°ì¤€, ìŠµë„ ê°€ì¥ í° ê°’ 10143 // 90% <887 95% <507 97% 304
    int moi_percent = 90;
    int moi_percent_plus = (100 - moi_percent) * moi_cmp_error_sum / 100;
 
@@ -611,7 +611,7 @@ int find_moi()
          {
             break;
          }
-         //printf("cmp_head: %d , ÀÏÄ¡À²: %d\n", cmp_head->date, 100 - (error_sum / 234798) * 100);
+         //printf("cmp_head: %d , ì¼ì¹˜ìœ¨: %d\n", cmp_head->date, 100 - (error_sum / 234798) * 100);
          add_save_dll(cmp_head);
          sad_cnt++;
          //printf("date: %d  moi; %d ", cmp_head->date,cmp_head->moi);
@@ -621,7 +621,7 @@ int find_moi()
       cmp_tail = cmp_tail->under;
    }
    
-   //3, ±â¿Â filter
+   //3, ê¸°ì˜¨ filter
    struct save* save_cmp_flag = save_head;
    struct node* find_node = find_head;
    struct node* tem_cmp_flag = save_cmp_flag->node_posi;
@@ -636,7 +636,7 @@ int find_moi()
       {
          break;
       }
-      //moi_cmp_flag_tail Ã£±â
+      //moi_cmp_flag_tail ì°¾ê¸°
       int error_sum = 0;
       tem_cmp_flag = save_cmp_flag->node_posi;
       for (int moi_cmp_flag_idx = 0; moi_cmp_flag_idx < 6; moi_cmp_flag_idx++) 
@@ -647,7 +647,7 @@ int find_moi()
       tem_cmp_flag = save_cmp_flag->node_posi;
 
       //show_save();
-      //Á¶°Ç¿¡ ¸ÂÃç ¸ÂÃß¾î º¸°í Á¶°Ç¿¡ ÀÏÄ¡ ÇÏÁö ¾Ê´Â °ÍÀ» ÇÊÅÍ¸µ
+      //ì¡°ê±´ì— ë§ì¶° ë§ì¶”ì–´ ë³´ê³  ì¡°ê±´ì— ì¼ì¹˜ í•˜ì§€ ì•ŠëŠ” ê²ƒì„ í•„í„°ë§
       while (tem_cmp_flag != moi_cmp_flag_tail->under)
       {
          error_sum = error_sum + (tem_cmp_flag->high_tem - find_node->high_tem)*(tem_cmp_flag->high_tem - find_node->high_tem);
@@ -665,7 +665,7 @@ int find_moi()
          //cnt++;
          //printf("%d\n",cnt);
          
-         if (save_cmp_flag->next == 0)  // ¸¶Áö¸·À» »èÁ¦ÇÒ¶§ next°¡ ¾ø±â ¶§¹®¿¡.
+         if (save_cmp_flag->next == 0)  // ë§ˆì§€ë§‰ì„ ì‚­ì œí• ë•Œ nextê°€ ì—†ê¸° ë•Œë¬¸ì—.
          {
             if (save_cmp_flag->prev != 0)
             {
@@ -687,7 +687,7 @@ int find_moi()
       save_cmp_flag = save_cmp_flag->next;
    }
 
-   //°­¼ö ÇÊÅÍ¸µ
+   //ê°•ìˆ˜ í•„í„°ë§
    save_cmp_flag = save_head;
    find_node = find_head;
    struct node* rain_cmp_flag = save_cmp_flag->node_posi;
@@ -702,7 +702,7 @@ int find_moi()
       {
          break;
       }
-      //rain_cmp_flag_tail Ã£±â
+      //rain_cmp_flag_tail ì°¾ê¸°
       int error_sum = 0;
       rain_cmp_flag = save_cmp_flag->node_posi;
          for (int rain_cmp_flag_idx = 0; rain_cmp_flag_idx < 6; rain_cmp_flag_idx++)
@@ -712,14 +712,14 @@ int find_moi()
       struct node* rain_cmp_flag_tail = rain_cmp_flag;
       rain_cmp_flag = save_cmp_flag->node_posi;
 
-      //Á¶°Ç¿¡ ¸ÂÃç ¸ÂÃß¾î º¸°í Á¶°Ç¿¡ ÀÏÄ¡ ÇÏÁö ¾Ê´Â °ÍÀ» ÇÊÅÍ¸µ
+      //ì¡°ê±´ì— ë§ì¶° ë§ì¶”ì–´ ë³´ê³  ì¡°ê±´ì— ì¼ì¹˜ í•˜ì§€ ì•ŠëŠ” ê²ƒì„ í•„í„°ë§
       while (rain_cmp_flag != rain_cmp_flag_tail->under)
       {
          error_sum = error_sum + (rain_cmp_flag->rain - find_node->rain)*(rain_cmp_flag->rain - find_node->rain);
          rain_cmp_flag = rain_cmp_flag->under;
       }
       //printf("date: %d sum: %d\n",rain_cmp_flag->date,error_sum);
-      if (error_sum > rain_percent_plus) //°¡Àå Å« °ª 65014
+      if (error_sum > rain_percent_plus) //ê°€ì¥ í° ê°’ 65014
       {
          if (rain_cmp_flag_tail->under == 0)
          {
@@ -728,7 +728,7 @@ int find_moi()
          //cnt++;
          //printf("%d\n", cnt);
          save_cmp_flag = save_cmp_flag->next;
-         if (save_cmp_flag == 0)  // ¸¶Áö¸·À» »èÁ¦ÇÒ¶§ next°¡ ¾ø±â ¶§¹®¿¡.
+         if (save_cmp_flag == 0)  // ë§ˆì§€ë§‰ì„ ì‚­ì œí• ë•Œ nextê°€ ì—†ê¸° ë•Œë¬¸ì—.
          {
             break;
          }
